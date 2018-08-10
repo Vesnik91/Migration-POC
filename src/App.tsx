@@ -10,6 +10,7 @@ import './App.css';
 import { createStore } from 'redux'
 
 import logo from './logo.svg';
+import GLDCard from "./components/GLDCard";
 
 function storeReducer(state = new StoreData({cards: initialCardsData}), action: any) {
   switch (action.type) {
@@ -38,6 +39,8 @@ class App extends React.Component {
               To get started, edit <code>src/App.tsx</code> and save to reload.
             </p>
             <ManageYourGoals/>
+
+            <GLDCard/>
           </div>
         </MuiThemeProvider>
       </Provider>

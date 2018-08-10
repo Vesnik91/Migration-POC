@@ -13,9 +13,8 @@ import logo from './logo.svg';
 
 function storeReducer(state = new StoreData({cards: initialCardsData}), action: any) {
   switch (action.type) {
-    case 'INCREMENT':
-      return state;
-    case 'DECREMENT':
+    case 'SOME_ACTION':
+      console.log('WE CAN UPDATE STORE HERE. WOOHOO!!!');
       return state;
     default:
       return state
@@ -34,9 +33,6 @@ class App extends React.Component {
               <img src={logo} className="App-logo" alt="logo" />
               <h1 className="App-title">Welcome to React</h1>
             </header>
-            <p className="App-intro">
-              To get started, edit <code>src/App.tsx</code> and save to reload.
-            </p>
             <ManageYourGoals/>
           </div>
         </MuiThemeProvider>

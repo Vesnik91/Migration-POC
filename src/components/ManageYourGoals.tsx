@@ -8,6 +8,7 @@ import Icon from 'material-ui/svg-icons/maps/local-car-wash';
 import DragIcon from 'material-ui/svg-icons/navigation/more-vert';
 import { Card } from '../beans/Card';
 import { connect } from 'react-redux'
+import someAction from '../actions/card';
 
 interface MangeYourGoalsState {
   open: boolean,
@@ -15,7 +16,8 @@ interface MangeYourGoalsState {
 }
 
 interface MangeYourGoalsProps {
-  cards: Card[]
+  cards: Card[],
+  dispatchAction: () => {}
 }
 
 const leftIconStyle = {
@@ -56,6 +58,7 @@ class ManageYourGoals extends React.Component<MangeYourGoalsProps, MangeYourGoal
   };
 
   handleClose = () => {
+    this.props.dispatchAction();
     this.setState({open: false});
   };
 
@@ -131,7 +134,7 @@ class ManageYourGoals extends React.Component<MangeYourGoalsProps, MangeYourGoal
 
     return (
       <div>
-        <RaisedButton label="Dialog" onClick={this.handleOpen} />
+        <RaisedButton label="Mange Your Goals" onClick={this.handleOpen} />
         <Dialog
           title="Set your goals priority"
           titleStyle={{color: '#6A5F4D'}}
@@ -153,7 +156,11 @@ class ManageYourGoals extends React.Component<MangeYourGoalsProps, MangeYourGoal
 }
 
 const mapDispatchToProps = (dispatch, ownProps) => {
-  return {}
+  return {
+    dispatchAction: id => {
+      dispatch(someAction('SOME COOL DATA'))
+    }
+  }
 };
 
 const mapStateToProps = (state, ownProps) => {
